@@ -1,19 +1,17 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 
-let amigos = [];              //variable global donde se agregarán los amigos
+//let amigos = ['vale','edu','hugo','michael'];  //variable global donde se agregarán los amigos
+let amigos = [];  //variable global donde se agregarán los amigos
 limpiarCajaTexto('amigo','');
 console.log('Listado de amigos: '+amigos);
 
-
-//Función que evalua el ingreso de un nombre mediante el evento html:
+//1. FUNCIONES BASE DEL PROYECTO
+//1.1 Función que evalua el ingreso de un nombre mediante el evento html:
 function agregarAmigo(){
     let amigoIngresado = document.getElementById('amigo').value;  //se obtiene el valor del textbox a la variable
     
-    //Evaluación de que el campo no es un texto vacío:
-    if (amigoIngresado != ''){
-        
-        if(amigos.includes(amigoIngresado)){
-            //asignarTextoElemento('#resultado','');
+    if (amigoIngresado != ''){                 //Evaluación de que el campo no es un texto vacío:
+        if(amigos.includes(amigoIngresado)){   //Evalua si la persona ya se encuantra en la lista
             limpiarCajaTexto('amigo','');
             alert('Esta persona ya está incluida');
         } else{
@@ -26,8 +24,7 @@ function agregarAmigo(){
             limpiarCajaTexto('amigo','');
             actualizaListaAmigos();
         }
-    } else {
-        //asignarTextoElemento('#resultado','');
+    } else{
         limpiarCajaTexto('amigo','');
         alert('Por favor, ingrese un nombre.');
     }
@@ -35,59 +32,53 @@ function agregarAmigo(){
     return;
 }
 
-
-//Función que mustra la lista de amigos actualizada en pantalla:
+//1.2 Función que mustra la lista de amigos actualizada en pantalla:
 function actualizaListaAmigos(){
-    textoEnHtml = '';
+    document.querySelector('#listaAmigos').setAttribute('style','text-align: center'); //alinea cada elemento al centro
+    textoEnHtml = 'Amigas y Amigos:';
     
     for(let i= 0; i < amigos.length; ++i){
         textoEnHtml += `<li>${amigos[i]}</li>`;
-        document.querySelector('#listaAmigos').setAttribute('style','text-align: center'); //alinea cada elemento al centro
     }
     asignarTextoElemento('#listaAmigos',textoEnHtml);
     
     return;
 }
 
-
-//Función que sortea el amigo en forma semi-aleatoria:
+//1.3 Función que sortea el amigo en forma semi-aleatoria:
 function sortearAmigo(){
-    
     if(amigos.length != 0){
         let numeroGenerado = generarAmigoSorteado();
 
         document.querySelector('#resultado').setAttribute('style','text-align: center'); //alinea el texto del sorteo al centro
-        asignarTextoElemento('#resultado',`¡La persona sorteada es ${amigos[numeroGenerado - 1]}!`);
+        asignarTextoElemento('#resultado',`¡La persona secreta es ${amigos[numeroGenerado - 1]}!`);
         
         limpiarCajaTexto('amigo','');
         document.querySelector('#listaAmigos').innerHTML = '';
-        
     } else{
         document.querySelector('#resultado').setAttribute('style','text-align: center'); //alinea el texto del sorteo al centro
         asignarTextoElemento('#resultado','¡Ingrese al menos un amigo para sortear!');
-        
-        //limpiarCajaTexto('amigo','');
-        document.getElementById('amigo').focus();   
+        limpiarCajaTexto('amigo','');
     }
 
     return;
 }
 
 
-//Genera número semi-aleatorio:
+//2. FUNCIONES COMPLEMENTARIAS
+//2.1 Genera número semi-aleatorio:
 function generarAmigoSorteado(){
     return Math.floor(Math.random()*amigos.length)+1;
 }
 
-
+//2.2 Limpia y enfoca la caja de texto
 function limpiarCajaTexto(id, parametro){
     document.getElementById(id).value = parametro; //deja la caja de texto en blanco
     document.getElementById(id).focus();           //se fija el foco del cursor en la caja de texto parq que el usuario no tenga que mover y seleccionar el cursor sobre el textbox
     return;
 }
 
-
-//Función que asigna texto a etiquetas del HTML::
+//2.3 Función que asigna texto a etiquetas del HTML::
 function asignarTextoElemento(elemento, parámetro) {
     let elementoHTML = document.querySelector(elemento);  //obtiene el elemento html
     elementoHTML.innerHTML = parámetro;
