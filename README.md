@@ -7,8 +7,7 @@ Challenge Amigo Secreto, te permite ingresar el nombre de las personas que desee
 ![alt text](amigosecreto.jpg)
 
 - `Paso 1`: escriba el nombre de la persona en la caja de texto.
-- `Paso 2`: utilice el botón AÑADIR. ¡Listo!, la persona está en la lista de candidatos(as).
-   ¡Continúe añadiendo el número de personas que desee!.
+- `Paso 2`: utilice el botón AÑADIR. ¡Listo!, la persona está en la lista de candidatos(as). ¡Continúe añadiendo el número de personas que desee!.
 - `Paso 3`: Cuando haya agregado a todos sus amigas o amigos, presione el botón SORTEAR AMIGO; la página elegirá por usted.
 
 Pude seguir agregando personas, y realizar el sorteo nuevamente. ¡Ahora piense en el regalo para esa persona!
