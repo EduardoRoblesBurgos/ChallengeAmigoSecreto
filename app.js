@@ -1,6 +1,3 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-
-//let amigos = ['vale','edu','hugo','michael'];  //variable global donde se agregarán los amigos
 let amigos = [];  //variable global donde se agregarán los amigos
 limpiarCajaTexto('amigo','');
 console.log('Listado de amigos: '+amigos);
@@ -51,7 +48,7 @@ function sortearAmigo(){
         let numeroGenerado = generarAmigoSorteado();
 
         document.querySelector('#resultado').setAttribute('style','text-align: center'); //alinea el texto del sorteo al centro
-        asignarTextoElemento('#resultado',`¡La persona secreta es ${amigos[numeroGenerado - 1]}!`);
+        asignarTextoElemento('#resultado',`¡La persona elegida es ${amigos[numeroGenerado - 1]}!`);
         
         limpiarCajaTexto('amigo','');
         document.querySelector('#listaAmigos').innerHTML = '';
@@ -71,7 +68,7 @@ function generarAmigoSorteado(){
     return Math.floor(Math.random()*amigos.length)+1;
 }
 
-//2.2 Limpia y enfoca la caja de texto
+//2.2 Limpia y enfoca la caja de texto:
 function limpiarCajaTexto(id, parametro){
     document.getElementById(id).value = parametro; //deja la caja de texto en blanco
     document.getElementById(id).focus();           //se fija el foco del cursor en la caja de texto parq que el usuario no tenga que mover y seleccionar el cursor sobre el textbox
